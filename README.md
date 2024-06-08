@@ -3,7 +3,7 @@ Repositorio dedicado a criação de um jogo no estilo beat'em up.
 Focando em entender animações de luta, colisores e inimigos inteligentes
 
 
-#Progresso:
+# Progresso:
 - Player movement - Feito
 - Inimigo - em progresso...
 - Combate - não iniciado
