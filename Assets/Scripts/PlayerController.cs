@@ -41,6 +41,10 @@ public class PlayerController : MonoBehaviour
 
         // Armazena a direção que o jogador define
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
+
+        if(Input.GetKeyDown(KeyCode.L)){
+            GetComponent<PlayerLife>().takeDamage(2);  //chamando metodo de dano
+        }
     }
 
     //funçao que inverte o gameobject dependendo da direçao do movimento
