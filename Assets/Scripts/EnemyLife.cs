@@ -32,14 +32,16 @@ public class EnemyLife : MonoBehaviour
         {
             currentLife -= damage;
             GetComponent<EnemyController>().EnemyDamageAnimation();
+            UIManager.istance.AtualizarBarraDeVidaDoInimigoAtual(maxLife,currentLife);  //barra de vida
 
             if (currentLife <= 0)
             {
                 isEnemyAlive = false;
                 GetComponent<EnemyController>().DefeatAnimation();
+                UIManager.istance.DesativarPainelDoInimigo();
                 SpawnFood();
                 Destroy(this.gameObject, vanishTime);
-
+    
             }
         }
     }
