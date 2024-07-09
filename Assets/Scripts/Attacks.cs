@@ -8,9 +8,13 @@ public class Attacks : MonoBehaviour
     //other é o componente colidido
     private void OnTriggerEnter2D(Collider2D other) {
 
-        //se o objeto colidido tiver o componente PlayerLife
+        //se colidir com o player
         if(other.gameObject.GetComponent<PlayerLife>() != null){
             other.gameObject.GetComponent<PlayerLife>().takeDamage(damage);  //chamando metodo de dano
         }    
+        //se colidir com o inimigo
+        else if(other.gameObject.GetComponent<EnemyLife>() != null){
+            other.gameObject.GetComponent<EnemyLife>().takeDamage(damage); 
+        }
     }
 }

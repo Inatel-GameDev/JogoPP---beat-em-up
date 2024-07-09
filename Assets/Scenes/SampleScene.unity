@@ -237,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 5
   tempoMaxEntreAtaques: 0.4
+  tempoMaximoDoDano: 0.5
 --- !u!95 &69002896
 Animator:
   serializedVersion: 5
@@ -270,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc319c84fde2814abf41a7d557ff66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAlive: 0
+  isPlayerAlive: 0
   maxLife: 10
 --- !u!1 &120694407
 GameObject:
@@ -790,6 +791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1668149539}
   - component: {fileID: 1668149540}
+  - component: {fileID: 1668149541}
   m_Layer: 0
   m_Name: ColisorSoco
   m_TagString: Untagged
@@ -857,6 +859,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1668149541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668149538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8364c108ce8bad447b7ed1a6a040a88c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &1816547257
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,6 +882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1816547258}
   - component: {fileID: 1816547259}
+  - component: {fileID: 1816547260}
   m_Layer: 0
   m_Name: ColisorChute
   m_TagString: Untagged
@@ -934,6 +950,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1816547260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816547257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8364c108ce8bad447b7ed1a6a040a88c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
 --- !u!1 &1952682774
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,8 +1006,9 @@ GameObject:
   - component: {fileID: 2051210133}
   - component: {fileID: 2051210132}
   - component: {fileID: 2051210135}
-  - component: {fileID: 2051210134}
   - component: {fileID: 2051210136}
+  - component: {fileID: 2051210134}
+  - component: {fileID: 2051210137}
   m_Layer: 0
   m_Name: Enemy-Bill
   m_TagString: Untagged
@@ -1018,8 +1048,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.26849878, y: -0.34616673}
-  m_Size: {x: 1.5699074, y: 3.2366774}
+  m_Offset: {x: -0.2684988, y: -0.3461667}
+  m_Size: {x: 1.569907, y: 3.236677}
   m_Direction: 0
 --- !u!4 &2051210133
 Transform:
@@ -1104,6 +1134,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2051210137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051210130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319f2111f64693c4880e490a2ee94706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnemyAlive: 0
+  maxLife: 4
+  vanishTime: 2
 --- !u!1 &2082333533
 GameObject:
   m_ObjectHideFlags: 0

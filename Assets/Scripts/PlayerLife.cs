@@ -4,25 +4,29 @@ using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
-    public bool isAlive;    //deve ser publica para ser acessado em outros scripts
+    [Header("Status")]
+    public bool isPlayerAlive;    //deve ser publica para ser acessado em outros scripts
+    [Header("Life controller")]
     [SerializeField]private int maxLife;
     private int currentLife;
 
     private void Start()
     {
-        isAlive = true;
-        currentLife = maxLife;
+
+        isPlayerAlive = true;   //player começa vivo
+        currentLife = maxLife;  //vida inicial = maxima
 
         
     }
 
-    public void takeDamage(int damage){
+    public void takeDamage(int damage){  //aplica o dano ao player
         
-        if(isAlive){
+        if(isPlayerAlive){
             currentLife -= damage;
+            GetComponent<PlayerController>().DamageAnimation();  //animação de dano
 
             if(currentLife <= 0){
-                isAlive = false;
+                isPlayerAlive = false;
                 Debug.Log("Player morreu");
             }
         }
