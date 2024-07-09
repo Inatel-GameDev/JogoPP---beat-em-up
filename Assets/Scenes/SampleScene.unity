@@ -1149,6 +1149,11 @@ MonoBehaviour:
   isEnemyAlive: 0
   maxLife: 4
   vanishTime: 2
+  dropFoodChance: 20
+  foodsType:
+  - {fileID: 7716665289820454454, guid: 5e5160068200c9940be3c4c05a37db0b, type: 3}
+  - {fileID: 6849507953118901434, guid: bb1b9a4d1efa7c7458f7b855a58e15e3, type: 3}
+  - {fileID: 5676006465964458315, guid: 0c0a3971ea7c1084697ffe1725624706, type: 3}
 --- !u!1 &2082333533
 GameObject:
   m_ObjectHideFlags: 0

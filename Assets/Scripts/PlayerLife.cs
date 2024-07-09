@@ -12,11 +12,19 @@ public class PlayerLife : MonoBehaviour
 
     private void Start()
     {
-
         isPlayerAlive = true;   //player começa vivo
         currentLife = maxLife;  //vida inicial = maxima
+    }
 
-        
+    public void restoreLife(int lifePoint)
+    {
+        if(currentLife + lifePoint <= maxLife){
+            currentLife += lifePoint;
+        }
+        else{
+            currentLife = maxLife;
+        }
+
     }
 
     public void takeDamage(int damage){  //aplica o dano ao player

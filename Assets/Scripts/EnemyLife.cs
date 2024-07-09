@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,8 +11,13 @@ public class EnemyLife : MonoBehaviour
 
     [Header("Life controller")]
     [SerializeField] private int maxLife;
-    [SerializeField]private float vanishTime;
     private int currentLife;
+    [SerializeField] private float vanishTime;
+
+    [Header("Drops")]
+    [SerializeField] private int dropFoodChance;
+    [SerializeField] private GameObject[] foodsType;  //array de comidas
+
 
     private void Start()
     {
@@ -19,19 +25,34 @@ public class EnemyLife : MonoBehaviour
         currentLife = maxLife;
     }
 
-    public void takeDamage(int damage){   //aplica o dano ao inimigo
+    public void takeDamage(int damage)
+    {   //aplica o dano ao inimigo
 
-        if(isEnemyAlive){
+        if (isEnemyAlive)
+        {
             currentLife -= damage;
             GetComponent<EnemyController>().EnemyDamageAnimation();
 
-            if(currentLife <= 0){
+            if (currentLife <= 0)
+            {
                 isEnemyAlive = false;
                 GetComponent<EnemyController>().DefeatAnimation();
-                Destroy(this.gameObject,vanishTime);
-                Debug.Log("Inimigo morreu");
+                SpawnFood();
+                Destroy(this.gameObject, vanishTime);
 
             }
+        }
+    }
+
+    private void SpawnFood()
+    {
+
+        int dropChance = Random.Range(0, 100);  //chance de dropar comida
+        
+        if (dropChance <= dropFoodChance)  //se chance for menor que a chance fixa
+        {
+            GameObject food = foodsType[Random.Range(0, foodsType.Length)];
+            Instantiate(food, transform.position, transform.rotation);         //instanciando o gameobject
         }
     }
 
