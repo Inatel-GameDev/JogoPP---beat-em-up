@@ -34,16 +34,23 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        CronometroDeAtaque();
-        if (!levouDano)
+        if (GetComponent<PlayerLife>().isPlayerAlive)
         {
-            ReceiveInputs();
-            PlayerMove();
-            EspelharPlayer();
-            PlayerAnimations();
+            CronometroDeAtaque();
+            if (!levouDano)
+            {
+                ReceiveInputs();
+                PlayerMove();
+                EspelharPlayer();
+                PlayerAnimations();
+            }
+            else
+            {
+                CronometroDeDano();
+            }
         }
         else{
-            CronometroDeDano();
+            DefeatAnimation();
         }
     }
 
@@ -116,6 +123,11 @@ public class PlayerController : MonoBehaviour
             podeAtacar = false;
         }
 
+    }
+
+    public void DefeatAnimation()
+    {
+        oAnimator.Play("player-defeated");
     }
 
 

@@ -35,7 +35,7 @@ public class PlayerLife : MonoBehaviour
 
             if(currentLife <= 0){
                 isPlayerAlive = false;
-                Debug.Log("Player morreu");
+                GetComponent<PlayerController>().DefeatAnimation();
             }
         }
     }
