@@ -6,6 +6,10 @@ public class PlayerLife : MonoBehaviour
 {
     [Header("Status")]
     public bool isPlayerAlive;    //deve ser publica para ser acessado em outros scripts
+
+    [Header("Parameters")]
+    [SerializeField]private float gameoverWaitTime;
+
     [Header("Life controller")]
     [SerializeField]private int maxLife;
     private int currentLife;
@@ -36,7 +40,13 @@ public class PlayerLife : MonoBehaviour
             if(currentLife <= 0){
                 isPlayerAlive = false;
                 GetComponent<PlayerController>().DefeatAnimation();
+                StartCoroutine(AtivarGameOver());                          //iniciando coroutine
             }
         }
+    }
+
+    private IEnumerator AtivarGameOver(){
+        yield return new WaitForSeconds(gameoverWaitTime);          //esperar x segundos
+        UIManager.istance.AtivarPainelGameOver();
     }
 }

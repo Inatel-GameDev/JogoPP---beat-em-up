@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager istance;
+
+    [Header("UI Game Over")]
+    [SerializeField]private GameObject painelGameOver;
+
+    [Header("UI do Inimigo")]
     [SerializeField]private GameObject PainelDoInimigo;
     [SerializeField]private Slider BarraDeVidaDoInimigoAtual;
 
@@ -38,5 +43,8 @@ public class UIManager : MonoBehaviour
         AtivarPainelDoInimigo();
     }
 
+    public void AtivarPainelGameOver(){
+        painelGameOver.SetActive(true);
+    }
 
 }
