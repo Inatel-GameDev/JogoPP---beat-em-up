@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -12,6 +13,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float playerSpeed;             //velocidade em que o jogador se move
     private Vector2 movementInput;                          //entrada de movimento
     private Vector2 movementDirection;                      //qual direçao x e y o jogador ira andar
+
+    [Header("Movement Limits")]
+    [SerializeField]private float maxX;
+    [SerializeField]private float minX;
+     [SerializeField]private float maxY;
+     [SerializeField]private float minY;
+   
+    
 
     [Header("AttackController")]
     [SerializeField] private float tempoMaxEntreAtaques;     //tempo de espera entre um ataque e outro
@@ -40,7 +49,7 @@ public class PlayerController : MonoBehaviour
             if (!levouDano)
             {
                 ReceiveInputs();
-                PlayerMove();
+                PlayerMovement();
                 EspelharPlayer();
                 PlayerAnimations();
             }
@@ -80,12 +89,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void PlayerMove()
+    private void PlayerMovement()
     {
 
         //movimenta o jogador com base na direçao
         movementDirection = movementInput.normalized;            //.normalized para manter a velocidade ao andar em diagonal
         oRigidbody2D.velocity = movementDirection * playerSpeed;
+
+        //limita a movimentaçao do jogador
+        //mathf.clamp define o limite
+        oRigidbody2D.position = new Vector2(Mathf.Clamp(oRigidbody2D.position.x,minX,maxX),Mathf.Clamp(oRigidbody2D.position.y,minY,maxY));
 
     }
 
