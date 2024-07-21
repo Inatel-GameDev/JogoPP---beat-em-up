@@ -12,6 +12,6 @@ Após estudo da estrutura do jogo por completo, ele será refeito com outra tem�
 - UI - Em progresso...
 - Cenário - Concluido(Fase 1)
 - Câmera e spawn - Concluido
-- Música e efeitos sonoros - não iniciado
-- Fases - não iniciado
+- Música e efeitos sonoros - Concluido
+- Fases - 1 e 2
 - Menu - não iniciado
