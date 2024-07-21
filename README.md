@@ -10,8 +10,8 @@ Após estudo da estrutura do jogo por completo, ele será refeito com outra tem�
 - Combate - Concluido
 - Utilitários - Concluido
 - UI - Em progresso...
-- Cenário - não iniciado
-- Câmera e spawn - não iniciado
+- Cenário - Concluido(Fase 1)
+- Câmera e spawn - Concluido
 - Música e efeitos sonoros - não iniciado
 - Fases - não iniciado
 - Menu - não iniciado
