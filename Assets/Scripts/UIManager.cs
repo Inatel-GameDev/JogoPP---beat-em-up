@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager istance;
+    [SerializeField]private Animator oAnimatorTransition;
 
     [Header("UI Game Over")]
     [SerializeField]private GameObject painelGameOver;
@@ -13,6 +14,8 @@ public class UIManager : MonoBehaviour
     [Header("UI do Inimigo")]
     [SerializeField]private GameObject PainelDoInimigo;
     [SerializeField]private Slider BarraDeVidaDoInimigoAtual;
+
+    
 
     private void Awake()  //roda antes do start
     {
@@ -25,6 +28,15 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         DesativarPainelDoInimigo();
+        ClearTransition();
+    }
+
+    private void ClearTransition(){
+        oAnimatorTransition.Play("imagem-transicao-desaparecendo");
+    }
+
+    public void ActivateTransition(){
+        oAnimatorTransition.Play("imagem-transicao-escurecendo");
     }
 
     public void AtivarPainelDoInimigo(){

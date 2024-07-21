@@ -15,12 +15,12 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementDirection;                      //qual direçao x e y o jogador ira andar
 
     [Header("Movement Limits")]
-    [SerializeField]private float maxX;
-    [SerializeField]private float minX;
-     [SerializeField]private float maxY;
-     [SerializeField]private float minY;
-   
-    
+    [SerializeField] private float maxX;
+    [SerializeField] private float minX;
+    [SerializeField] private float maxY;
+    [SerializeField] private float minY;
+
+
 
     [Header("AttackController")]
     [SerializeField] private float tempoMaxEntreAtaques;     //tempo de espera entre um ataque e outro
@@ -58,7 +58,8 @@ public class PlayerController : MonoBehaviour
                 CronometroDeDano();
             }
         }
-        else{
+        else
+        {
             DefeatAnimation();
         }
     }
@@ -67,10 +68,8 @@ public class PlayerController : MonoBehaviour
 
     private void ReceiveInputs()
     {
-
         // Armazena a direção que o jogador define
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
     }
 
     //funçao que inverte o gameobject dependendo da direçao do movimento
@@ -98,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
         //limita a movimentaçao do jogador
         //mathf.clamp define o limite
-        oRigidbody2D.position = new Vector2(Mathf.Clamp(oRigidbody2D.position.x,minX,maxX),Mathf.Clamp(oRigidbody2D.position.y,minY,maxY));
+        oRigidbody2D.position = new Vector2(Mathf.Clamp(oRigidbody2D.position.x, minX, maxX), Mathf.Clamp(oRigidbody2D.position.y, minY, maxY));
 
     }
 
@@ -129,11 +128,13 @@ public class PlayerController : MonoBehaviour
         {
             oAnimator.SetTrigger("socando");
             podeAtacar = false;
+            SoundManager.instance.impactoSoco.Play();
         }
         else if (Input.GetKeyDown(KeyCode.E) && podeAtacar)
         {
             oAnimator.SetTrigger("chutando");
             podeAtacar = false;
+            SoundManager.instance.impactoChute.Play();
         }
 
     }

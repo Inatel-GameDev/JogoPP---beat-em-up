@@ -5,23 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class GameOverPanel : MonoBehaviour
 {
-    [SerializeField]private string menu;
-    void Update()
+    [SerializeField] private string menu;
+
+    private void Start()
+    {
+        SoundManager.instance.TocarMusicaDeGameOver();
+
+    }
+    private void Update()
     {
         GameOverOptions();
     }
 
-    private void GameOverOptions(){
-        
+    private void GameOverOptions()
+    {
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene(menu);
         }
-        
+
     }
 }

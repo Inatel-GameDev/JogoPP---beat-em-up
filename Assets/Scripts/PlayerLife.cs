@@ -24,6 +24,7 @@ public class PlayerLife : MonoBehaviour
     {
         if(currentLife + lifePoint <= maxLife){
             currentLife += lifePoint;
+            
         }
         else{
             currentLife = maxLife;
@@ -36,6 +37,7 @@ public class PlayerLife : MonoBehaviour
         if(isPlayerAlive){
             currentLife -= damage;
             GetComponent<PlayerController>().DamageAnimation();  //animação de dano
+            SoundManager.instance.jogadorLevandoDano.Play();
 
             if(currentLife <= 0){
                 isPlayerAlive = false;

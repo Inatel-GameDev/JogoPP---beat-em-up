@@ -33,7 +33,8 @@ public class EnemyLife : MonoBehaviour
             currentLife -= damage;
             GetComponent<EnemyController>().EnemyDamageAnimation();
             UIManager.istance.AtualizarBarraDeVidaDoInimigoAtual(maxLife,currentLife);  //barra de vida
-
+            SoundManager.instance.inimigoLevandoDano.Play();
+            
             if (currentLife <= 0)
             {
                 isEnemyAlive = false;

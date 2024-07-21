@@ -14294,8 +14294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextFase: Fase02
-  transitionTime: 0.5
-  loadTime: 0.8
+  transitionTime: 0.8
+  loadTime: 1
 --- !u!61 &2033462225
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14618,10 +14618,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AreaDeLuta03
       objectReference: {fileID: 0}
-    - target: {fileID: 2119926972615642181, guid: 04ae798962d2ca84ab4dfa1f3ab8e714, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2493331686866429706, guid: 04ae798962d2ca84ab4dfa1f3ab8e714, type: 3}
       propertyPath: m_LocalPosition.x
       value: 50.63
@@ -14718,10 +14714,6 @@ PrefabInstance:
     - target: {fileID: 4920704636219946906, guid: 598964f75651f0049a543e4365c0e7c9, type: 3}
       propertyPath: m_Name
       value: AreaDeLuta02
-      objectReference: {fileID: 0}
-    - target: {fileID: 4920704636219946906, guid: 598964f75651f0049a543e4365c0e7c9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
